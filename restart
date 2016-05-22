@@ -1,0 +1,6 @@
+pkill love
+love . &
+wmctrl -a Sublime\ Text
+sleep 0.3
+wmctrl -r "My first love 2d game" -e 1,1100,0,0,0
+wmctrl -a Sublime\ Text

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="spec.svg">
+  <defs
+     id="defs4">
+    <filter
+       inkscape:label="Cracked Lava"
+       inkscape:menu="Materials"
+       inkscape:menu-tooltip="A volcanic texture, a little like leather"
+       style="color-interpolation-filters:sRGB;"
+       id="filter4239">
+      <feGaussianBlur
+         result="result0"
+         in="SourceGraphic"
+         stdDeviation="0.5"
+         id="feGaussianBlur4241" />
+      <feTurbulence
+         baseFrequency="0.042"
+         seed="488"
+         numOctaves="7"
+         result="result1"
+         id="feTurbulence4243" />
+      <feDisplacementMap
+         result="result5"
+         xChannelSelector="R"
+         scale="0"
+         in2="result1"
+         in="result1"
+         yChannelSelector="G"
+         id="feDisplacementMap4245" />
+      <feComposite
+         result="result2"
+         operator="in"
+         in2="result5"
+         in="result0"
+         id="feComposite4247" />
+      <feSpecularLighting
+         lighting-color="rgb(255,230,136)"
+         surfaceScale="2"
+         result="result4"
+         specularConstant="2"
+         specularExponent="65"
+         in="result2"
+         id="feSpecularLighting4249">
+        <feDistantLight
+           elevation="62"
+           azimuth="225"
+           id="feDistantLight4251" />
+      </feSpecularLighting>
+      <feComposite
+         k1="2.5"
+         k3="1"
+         k2="-0.5"
+         in2="result2"
+         in="result4"
+         operator="arithmetic"
+         result="result91"
+         id="feComposite4253" />
+      <feBlend
+         result="fbSourceGraphic"
+         mode="multiply"
+         in2="result91"
+         id="feBlend4255" />
+      <feColorMatrix
+         values="1 0 0 -1 0 1 0 1 -1 0 1 0 0 -1 0 -2 -0.5 0 5 -2"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         id="feColorMatrix4257" />
+      <feGaussianBlur
+         stdDeviation="8"
+         in="fbSourceGraphicAlpha"
+         result="result0"
+         id="feGaussianBlur4259" />
+      <feOffset
+         dx="2"
+         dy="2"
+         in="result0"
+         result="result3"
+         id="feOffset4261" />
+      <feSpecularLighting
+         in="result0"
+         result="result1"
+         lighting-color="rgb(255,255,255)"
+         surfaceScale="4"
+         specularConstant="0.8"
+         specularExponent="15"
+         id="feSpecularLighting4263">
+        <fePointLight
+           x="-5000"
+           y="-10000"
+           z="20000"
+           id="fePointLight4265" />
+      </feSpecularLighting>
+      <feComposite
+         in2="fbSourceGraphicAlpha"
+         in="result1"
+         result="result2"
+         operator="in"
+         id="feComposite4267" />
+      <feComposite
+         in="fbSourceGraphic"
+         result="result4"
+         operator="arithmetic"
+         k2="2"
+         k3="2"
+         in2="result2"
+         id="feComposite4269" />
+      <feBlend
+         mode="darken"
+         in2="result4"
+         id="feBlend4271" />
+    </filter>
+    <filter
+       inkscape:label="3D Marble"
+       inkscape:menu="Materials"
+       inkscape:menu-tooltip="3D warped marble texture"
+       height="1.5"
+       y="-0.25"
+       width="1.5"
+       x="-0.25"
+       style="color-interpolation-filters:sRGB;"
+       id="filter4273">
+      <feGaussianBlur
+         stdDeviation="4"
+         result="result8"
+         id="feGaussianBlur4275" />
+      <feTurbulence
+         seed="50"
+         result="result7"
+         type="turbulence"
+         numOctaves="7"
+         baseFrequency="0.01 0.01"
+         id="feTurbulence4277" />
+      <feColorMatrix
+         result="result5"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.4 0 "
+         id="feColorMatrix4279" />
+      <feComposite
+         result="result6"
+         in="result5"
+         operator="in"
+         in2="result8"
+         id="feComposite4281" />
+      <feDisplacementMap
+         in="result5"
+         xChannelSelector="A"
+         yChannelSelector="A"
+         scale="100"
+         result="result4"
+         in2="result6"
+         id="feDisplacementMap4283" />
+      <feFlood
+         flood-opacity="1"
+         flood-color="rgb(224,224,224)"
+         id="feFlood4285" />
+      <feComposite
+         result="result2"
+         operator="atop"
+         in2="result4"
+         id="feComposite4287" />
+      <feComposite
+         in="result2"
+         operator="atop"
+         in2="SourceGraphic"
+         result="result9"
+         id="feComposite4289" />
+      <feBlend
+         result="fbSourceGraphic"
+         mode="darken"
+         in2="result9"
+         id="feBlend4291" />
+      <feGaussianBlur
+         stdDeviation="5"
+         in="fbSourceGraphic"
+         result="result0"
+         id="feGaussianBlur4293" />
+      <feSpecularLighting
+         in="result0"
+         result="result1"
+         lighting-color="rgb(255,255,255)"
+         surfaceScale="8"
+         specularConstant="0.8"
+         specularExponent="30"
+         id="feSpecularLighting4295">
+        <feDistantLight
+           elevation="55"
+           azimuth="235"
+           id="feDistantLight4297" />
+      </feSpecularLighting>
+      <feComposite
+         in2="fbSourceGraphic"
+         in="result1"
+         result="result2"
+         operator="in"
+         id="feComposite4299" />
+      <feComposite
+         in="fbSourceGraphic"
+         result="result4"
+         operator="arithmetic"
+         k2="1"
+         k3="1"
+         in2="result2"
+         id="feComposite4301" />
+    </filter>
+    <filter
+       inkscape:menu-tooltip="3D warped, iridescent pearly shell texture"
+       inkscape:menu="Materials"
+       inkscape:label="3D Mother of Pearl"
+       width="1.5"
+       x="-0.25"
+       height="1.5"
+       y="-0.25"
+       style="color-interpolation-filters:sRGB;"
+       id="filter4303">
+      <feGaussianBlur
+         result="result8"
+         stdDeviation="3"
+         id="feGaussianBlur4305" />
+      <feTurbulence
+         baseFrequency="0.03 0.03"
+         numOctaves="8"
+         type="fractalNoise"
+         result="result7"
+         seed="77"
+         id="feTurbulence4307" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1.6 -0.6 "
+         result="result5"
+         id="feColorMatrix4309" />
+      <feComposite
+         in2="result8"
+         operator="in"
+         in="result7"
+         result="result6"
+         id="feComposite4311" />
+      <feDisplacementMap
+         in2="result6"
+         result="result4"
+         scale="60"
+         yChannelSelector="A"
+         xChannelSelector="A"
+         in="result5"
+         id="feDisplacementMap4313" />
+      <feConvolveMatrix
+         order="3 3"
+         kernelMatrix="2 0 0 0 4 0 0 0 -2 "
+         targetX="2"
+         targetY="2"
+         divisor="2"
+         result="result9"
+         id="feConvolveMatrix4315" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="atop"
+         in="result9"
+         result="result10"
+         id="feComposite4317" />
+      <feBlend
+         in2="result10"
+         mode="darken"
+         result="fbSourceGraphic"
+         id="feBlend4319" />
+      <feGaussianBlur
+         result="result0"
+         in="fbSourceGraphic"
+         stdDeviation="5"
+         id="feGaussianBlur4321" />
+      <feSpecularLighting
+         specularExponent="25"
+         specularConstant="1"
+         surfaceScale="5"
+         lighting-color="rgb(242,215,108)"
+         result="result1"
+         in="result0"
+         id="feSpecularLighting4323">
+        <feDistantLight
+           azimuth="235"
+           elevation="60"
+           id="feDistantLight4325" />
+      </feSpecularLighting>
+      <feComposite
+         operator="in"
+         result="result2"
+         in="result1"
+         in2="fbSourceGraphic"
+         id="feComposite4327" />
+      <feComposite
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         result="result4"
+         in="fbSourceGraphic"
+         in2="result2"
+         id="feComposite4329" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-993.73542"
+     inkscape:cy="256.72056"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="false"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#19aeff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect4136"
+       width="1688.5714"
+       height="1045.7142"
+       x="-628.57141"
+       y="-93.352081" />
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#dc0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter4239);color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect4138"
+       width="115.15739"
+       height="266.68027"
+       x="-564.74707"
+       y="150.02115" />
+    <rect
+       y="466.47372"
+       x="822.26416"
+       height="266.68027"
+       width="115.15739"
+       id="rect4140"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#9ade00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;filter:url(#filter4303)"
+       rx="40"
+       ry="40" />
+    <circle
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffff3e;fill-opacity:1;fill-rule:nonzero;stroke:#804d00;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;filter:url(#filter4273)"
+       id="path4142"
+       cx="-109.09647"
+       cy="294.7478"
+       r="52.527931" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:150.03205872px;line-height:1000%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="36.647602"
+       y="52.011982"
+       id="text4144"
+       sodipodi:linespacing="1000%"><tspan
+         sodipodi:role="line"
+         id="tspan4146"
+         x="36.647602"
+         y="52.011982">4 - 1</tspan></text>
+    <rect
+       y="-93.352081"
+       x="-2462.8572"
+       height="1045.7142"
+       width="1688.5714"
+       id="rect4152"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#97de00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:110.85483551px;line-height:1000%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-160.96294"
+       y="1131.9095"
+       id="text4154"
+       sodipodi:linespacing="1000%"><tspan
+         sodipodi:role="line"
+         id="tspan4156"
+         x="-160.96294"
+         y="1131.9095">in game state</tspan></text>
+    <text
+       sodipodi:linespacing="1000%"
+       id="text4158"
+       y="1131.9095"
+       x="-1892.3915"
+       style="font-style:normal;font-weight:normal;font-size:110.85483551px;line-height:1000%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="1131.9095"
+         x="-1892.3915"
+         id="tspan4160"
+         sodipodi:role="line">start state</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:74.70478058px;line-height:1000%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-2020.549"
+       y="480.44223"
+       id="text4162"
+       sodipodi:linespacing="1000%"><tspan
+         sodipodi:role="line"
+         id="tspan4164"
+         x="-2020.549"
+         y="480.44223">PRESS SPACE TO PLAY!</tspan></text>
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#dc0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 2968.5714,-93.352081 0,1045.714231 -1688.5714,0 z"
+       id="rect4166"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#dc0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 2968.5714,-93.352081 0,1045.714231 -1688.5714,0 z"
+       id="rect4168"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path4172"
+       d="m 1280,952.36215 0,-1045.714231 1688.5714,0 z"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#9ade00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:131.75112915px;line-height:1000%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1491.3534"
+       y="-366.72275"
+       id="text4174"
+       sodipodi:linespacing="1000%"><tspan
+         sodipodi:role="line"
+         id="tspan4176"
+         x="1491.3534"
+         y="-366.72275">if player 2 wins</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1434.2857,-347.63779 c -9.6101,20.2195 -29.9422,30.61418 -45.5362,45.03052 -28.1401,22.4071 -38.2762,57.99114 -46.9181,91.30543 5.1904,26.71899 -5.1531,57.79224 4.8525,82.12347 6.7755,16.56477 21.5965,27.43446 32.2553,44.05483 8.1216,8.382911 16.7664,23.509387 25.3861,26.055046 17.162,-17.787207 35.6746,-34.376672 36.7305,-61.264356 3.7237,-10.86692 22.7745,-39.71138 -5.3397,-32.87932 -5.0312,17.32634 -33.6936,9.09246 -50.5227,17.05675 -34.6348,-0.0223 -69.2713,-0.27066 -103.9047,0.16081 15.0362,18.19916 40.5182,26.01854 61.7384,33.89638 27.3326,8.848414 60.3588,8.732329 78.4565,32.861123 8.4982,1.661337 3.7924,17.557553 12.8021,13.027884"
+       id="path4178"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="1000%"
+       id="text4183"
+       y="1357.605"
+       x="1779.6377"
+       style="font-style:normal;font-weight:normal;font-size:131.75112915px;line-height:1000%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="1357.605"
+         x="1779.6377"
+         id="tspan4185"
+         sodipodi:role="line">if player 1 wins</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4187"
+       d="m 1736.8557,1286.3557 c -9.6101,-20.2195 -29.9422,-30.6142 -45.5362,-45.0305 -28.1401,-22.4071 -38.2762,-57.9912 -46.9181,-91.3054 5.1904,-26.719 -5.1531,-57.7923 4.8525,-82.1235 6.7755,-16.5648 21.5965,-27.4345 32.2553,-44.0548 8.1216,-8.383 16.7664,-23.5094 25.3861,-26.05506 17.162,17.78716 35.6746,34.37666 36.7305,61.26436 3.7237,10.8669 22.7745,39.7113 -5.3397,32.8793 -5.0312,-17.3264 -33.6936,-9.0925 -50.5227,-17.0568 -34.6348,0.022 -69.2713,0.2707 -103.9047,-0.1608 15.0362,-18.1991 40.5182,-26.0185 61.7384,-33.8964 27.3326,-8.8484 60.3588,-8.7323 78.4565,-32.8611 8.4982,-1.6613 3.7924,-17.55746 12.8021,-13.02786"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:89.38188934px;line-height:139.99999762%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1718.0105"
+       y="476.96826"
+       id="text4189"
+       sodipodi:linespacing="140%"><tspan
+         sodipodi:role="line"
+         x="1718.0105"
+         y="476.96826"
+         id="tspan4193">PLAYER 1/2 WINS!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:151.91897583px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-1051.2323"
+       y="1315.657"
+       id="text4197"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="1315.657"
+         id="tspan4201">Need:</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="1467.5759"
+         id="tspan4205">- drawing of fullscreen rectangles</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="1619.495"
+         id="tspan4207">- drawing of large text, including</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="1771.4139"
+         id="tspan4209">  numbers</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="1923.3329"
+         id="tspan4211">- state flow</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="2075.252"
+         id="tspan4213">- key up/down (space, Q/A, arrow up/down)</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="2227.1709"
+         id="tspan4331">- bitmap loading</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="2379.0898"
+         id="tspan4335">- blitting</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="2531.0088"
+         id="tspan4337">- fps independent animation</tspan><tspan
+         sodipodi:role="line"
+         x="-1051.2323"
+         y="2682.928"
+         id="tspan4339" /></text>
+  </g>
+</svg>
