@@ -7,6 +7,10 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 PAD_START_Y = SCREEN_HEIGHT/2 - PAD_H/2
 PAD_SPEED = 500
+PAD0IMAGE = love.graphics.newImage('pad0.png')
+PAD1IMAGE = love.graphics.newImage('pad1.png')
+
+require('lovestates')
 
 -- UTILITY
 function crop(value, max)
@@ -15,48 +19,38 @@ function crop(value, max)
 	return value
 end
 
--- STATE SWITCHING
-function switch_state(new_state)
-	assert(states[new_state], "Did not find state " .. new_state)
-	state = states[new_state]
-	state.init()
-end
-
 -- GAME STATE CONSTRUCTORS --
 
 function build_start_state()
+	local state = lovestate()
 	local angle = 0
-	return {
-		init = function()
-			love.graphics.setBackgroundColor( 255, 255, 62 )
-		end,
 
-		draw = function()
-			-- -- love.graphics.print("building pong", 400, 300)
-			-- love.graphics.rectangle( 'stroke', 0, 0, w, h )
-			love.graphics.setColor(
-				math.floor(angle) * 200,
-				math.floor(angle) * 300,
-				math.floor(angle) * 100,
-				255)
-			love.graphics.print("[PRESS SPACE TO PLAY]",
-				400, 300, angle, 4, 4, 75, 0)
-		end,
+	state.init = function()
+		love.graphics.setBackgroundColor( 255, 255, 62 )
+	end
 
-		update = function( dt )
-			angle = angle + dt * 2.0
-			-- debugtxt = angle
-		end,
+	state.draw = function()
+		love.graphics.setColor(
+			math.floor(angle) * 200,
+			math.floor(angle) * 300,
+			math.floor(angle) * 100,
+			255)
+		love.graphics.print("[PRESS SPACE TO PLAY]",
+			400, 300, angle, 4, 4, 75, 0)
+	end
 
-		keypressed = function ( key )
-			if key == ' ' then 
-				switch_state('game_state')
-			end
-		end,
+	state.update = function( dt )
+		angle = angle + dt * 2.0
+		-- debugtxt = angle
+	end
 
-		keyreleased = function ( key )
+	state.keypressed = function ( key )
+		if key == ' ' then 
+			switch_state('game_state')
 		end
-	}
+	end
+
+	return state
 end
 
 function build_game_state()
@@ -66,13 +60,14 @@ function build_game_state()
 	keybindings[0] = { w='up', s='down' }
 	keybindings[1] = { up='up',down='down' }
 
-	pad[0] = { name='pad0',
+	pad[0] = { name='pad0image',
 	           x=PAD_X_OFFSET,
 			   y=PAD_START_Y,
 			   color=PAD1_COLOR,
 			   score = 0,
 			   up = false,
-			   down = false
+			   down = false,
+			   image = PAD0IMAGE
 			 }
 	pad[1] = { name='pad1',
 	           x=SCREEN_WIDTH-PAD_W-PAD_X_OFFSET,
@@ -80,14 +75,19 @@ function build_game_state()
 	           color=PAD2_COLOR,
 	           score = 0,
 			   up = false,
-			   down = false
+			   down = false,
+			   image = PAD1IMAGE
 	       	 }
+	assert(pad[0].image)
+	assert(pad[1].image)
 
 	function drawPad(pad)
 		love.graphics.setColor(pad.color)
 		love.graphics.rectangle('fill',
 			pad.x, pad.y,
 			PAD_W, PAD_H)
+		assert(pad.image)
+		love.graphics.draw(pad.image, pad.x, pad.y)
 	end
 
 	function updatePadStateByKey(key, pressed, pad, bindings)
@@ -96,37 +96,45 @@ function build_game_state()
 		end
 	end
 
-	return {
-		init = function()
-			love.graphics.setBackgroundColor(  25, 174, 255 )
-		end,
-		draw = function()
-			drawPad(pad[0])
-			drawPad(pad[1])
-		end,
-		update = function( dt )
-			debugtxt = tostring(pad[0].up) .. ' ' .. tostring(pad[0]['down'])
-			for i = 0, 1 do
-				if pad[i].up then
-					debugtxt = 'moving up'
-					pad[i].y = pad[i].y - dt * PAD_SPEED
-				end
-				if pad[i].down then
-					debugtxt = 'moving down'
-					pad[i].y = pad[i].y + dt * PAD_SPEED
-				end
-				pad[i].y = crop(pad[i].y, SCREEN_HEIGHT-PAD_H)
+	local state = lovestate()
+
+	state.init = function()
+		love.graphics.setBackgroundColor(  25, 174, 255 )
+	end
+
+	state.draw = function()
+		love.graphics.printf('1-1', SCREEN_WIDTH/2, 0, 200)
+		drawPad(pad[0])
+		drawPad(pad[1])
+		love.graphics.circle('fill', 400, 300, 20)
+	end
+
+	state.update = function( dt )
+		-- debugtxt = tostring(pad[0].up) .. ' ' .. tostring(pad[0]['down'])
+		for i = 0, 1 do
+			if pad[i].up then
+				-- debugtxt = 'moving up'
+				pad[i].y = pad[i].y - dt * PAD_SPEED
 			end
-		end,
-		keypressed = function ( key )
-			updatePadStateByKey(key, true, pad[0], keybindings[0])
-			updatePadStateByKey(key, true, pad[1], keybindings[1])
-		end,
-		keyreleased = function ( key )
-			updatePadStateByKey(key, false, pad[0], keybindings[0])
-			updatePadStateByKey(key, false, pad[1], keybindings[1])
+			if pad[i].down then
+				-- debugtxt = 'moving down'
+				pad[i].y = pad[i].y + dt * PAD_SPEED
+			end
+			pad[i].y = crop(pad[i].y, SCREEN_HEIGHT-PAD_H)
 		end
-	}
+	end
+
+	state.keypressed = function ( key )
+		updatePadStateByKey(key, true, pad[0], keybindings[0])
+		updatePadStateByKey(key, true, pad[1], keybindings[1])
+	end
+
+	state.keyreleased = function ( key )
+		updatePadStateByKey(key, false, pad[0], keybindings[0])
+		updatePadStateByKey(key, false, pad[1], keybindings[1])
+	end
+
+	return state
 end
 
 
@@ -139,7 +147,9 @@ states.game_state = build_game_state()
 function love.load()
 	love.window.setTitle( 'My first love 2d game' )
     w, h, flags = love.window.getMode( )
-    switch_state( 'game_state' )
+    switch_state( 'start_state' )
+    font = love.graphics.newFont( 'font.ttf', 20 )
+    love.graphics.setFont( font )
 end
 
 function love.update( dt )
