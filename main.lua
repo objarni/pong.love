@@ -150,6 +150,7 @@ function love.load()
     switch_state( 'start_state' )
     font = love.graphics.newFont( 'font.ttf', 20 )
     love.graphics.setFont( font )
+    debugtxt = 'hello'
 end
 
 function love.update( dt )

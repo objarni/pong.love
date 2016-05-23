@@ -1,0 +1,2 @@
+avconv -i "%05d.jpg" -r 10 -c:v libx264 -crf 10  img.mov
+
