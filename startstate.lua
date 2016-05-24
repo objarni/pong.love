@@ -8,12 +8,14 @@ function build_start_state()
 
 	state.draw = function()
 		love.graphics.setColor(
-			math.floor(angle) * 200,
-			math.floor(angle) * 300,
-			math.floor(angle) * 100,
+			math.ceil(angle) * 200,
+			math.ceil(angle) * 300,
+			math.ceil(angle) * 100,
 			255)
-		love.graphics.print("[PRESS SPACE TO PLAY]",
-			400, 300, angle, 4, 4, 75, 0)
+		love.graphics.printf("[PRESS SPACE TO PLAY]",
+			SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/2, 400, 'center')
+		-- love.graphics.printf('1   1',
+	    --     SCREEN_WIDTH/2-100, 0, 200, 'center')
 	end
 
 	state.update = function( dt )
