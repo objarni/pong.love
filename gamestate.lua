@@ -12,7 +12,8 @@ PAD0IMAGE = love.graphics.newImage('pad0.png')
 PAD1IMAGE = love.graphics.newImage('pad1.png')
 BALLSIZE=20
 BALLSPEED=250
-
+POINT_SOUND = love.audio.newSource('point.wav', 'static')
+BOUNCE_SOUND = love.audio.newSource('bounce.wav', 'static')
 
 function build_game_state()
     local lightup = love.graphics.newShader[[
@@ -43,7 +44,14 @@ function build_game_state()
             reset = function(pad)
                         pad.score = 0
                         pad.y = PAD_START_Y
-                    end
+                    end,
+            pointIsInside = function(pad, x, y)
+                if x < pad.x then return false end
+                if x > pad.x + PAD_W then return false end
+                if y < pad.y then return false end
+                if y > pad.y + PAD_H then return false end
+                return true
+            end
         }
     end
     local pad = {}
@@ -74,6 +82,19 @@ function build_game_state()
             ball.y=SCREEN_HEIGHT/2
             if ball.dx then ball.dx = -ball.dx else ball.dx = -1 end
             ball.dy = 1 - 2*math.random(0, 1)
+        end,
+        padCollision = function(ball, pad)
+            -- Check if leftmost- or rightmost point of
+            -- ball is inside of pad rectangle
+            leftmost = ball.x -- BALLSIZE
+            rightmost = ball.x + BALLSIZE
+            if pad:pointIsInside(leftmost, ball.y) then
+                return true
+            end
+            -- if pad:pointIsInside(rightmost, ball.y) then
+            --     return true
+            -- end
+            return false
         end
     }
     ball:reset()
@@ -124,8 +145,9 @@ function build_game_state()
     end
 
     function scoreTo(padNum)
+        POINT_SOUND:play()
         local newScore = pad[padNum].score + 1
-        if newScore == 2 then
+        if newScore == 10 then
             switch_state('start_state')
         else
             pad[padNum].score = newScore
@@ -135,8 +157,15 @@ function build_game_state()
     function updateBall(ball, dt)
         ball.x = ball.x + ball.dx * dt * BALLSPEED
         ball.y = ball.y + ball.dy * dt * BALLSPEED
-        if ball.y < 0 or ball.y > SCREEN_HEIGHT then
+        if ball.y < 0 then
+            ball.y = 1
             ball.dy = -ball.dy
+            BOUNCE_SOUND:play()
+        end
+        if ball.y > SCREEN_HEIGHT then
+            ball.y = SCREEN_HEIGHT - 1
+            ball.dy = -ball.dy
+            BOUNCE_SOUND:play()
         end
         if ball.x < 0 then
             ball.reset(ball)
@@ -145,6 +174,15 @@ function build_game_state()
         if ball.x > SCREEN_WIDTH then
             ball.reset(ball)
             scoreTo(0)
+        end
+        for i = 0, 1 do
+            if ball:padCollision(pad[i]) then
+                ball.dx = -ball.dx
+                while ball:padCollision(pad[i]) do
+                    ball.x = ball.x + ball.dx
+                end
+                BOUNCE_SOUND:play()
+            end
         end
     end
 

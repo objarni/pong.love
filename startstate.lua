@@ -13,7 +13,7 @@ function build_start_state()
 			math.ceil(angle) * 100,
 			255)
 		love.graphics.printf("[PRESS SPACE TO PLAY]",
-			SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/2, 400, 'center')
+			SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/2-30, 400, 'center')
 		-- love.graphics.printf('1   1',
 	    --     SCREEN_WIDTH/2-100, 0, 200, 'center')
 	end
