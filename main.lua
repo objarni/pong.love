@@ -1,5 +1,4 @@
 
-require('crop')
 require('lovestates')
 require('startstate')
 require('gamestate')

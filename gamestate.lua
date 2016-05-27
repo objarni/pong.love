@@ -15,7 +15,6 @@ BALLSPEED=250
 
 
 function build_game_state()
-    local pad = {}
     local lightup = love.graphics.newShader[[
         extern vec2 centre;
         vec4 effect( vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords ){
@@ -29,31 +28,40 @@ function build_game_state()
     keybindings[0] = { w='up', s='down' }
     keybindings[1] = { up='up',down='down' }
 
-    function resetPad(pad)
-        pad.score = 0
-        y=PAD_START_Y
+
+    function buildPad(name, x, color, image, scoreX)
+        return
+        {
+            name = name,
+            x = x,
+            y = PAD_START_Y,
+            color = color,
+            up = false,
+            down = false,
+            image = image,
+            scoreX = scoreX,
+            reset = function(pad)
+                        pad.score = 0
+                        pad.y = PAD_START_Y
+                    end
+        }
     end
-    pad[0] = { name='pad0image',
-               x=PAD_X_OFFSET,
-               y=PAD_START_Y,
-               color=PAD1_COLOR,
-               up = false,
-               down = false,
-               image = PAD0IMAGE,
-               scoreX = SCREEN_WIDTH/8,
-               reset = resetPad
-             }
-    pad[1] = { name='pad1',
-               x=SCREEN_WIDTH-PAD_W-PAD_X_OFFSET,
-               color=PAD2_COLOR,
-               up = false,
-               down = false,
-               image = PAD1IMAGE,
-               scoreX = SCREEN_WIDTH/8*7,
-               reset = resetPad
-             }
+    local pad = {}
+    pad[0] = buildPad(
+                'Left pad',
+                PAD_X_OFFSET,
+                PAD1_COLOR,
+                PAD0IMAGE,
+                SCREEN_WIDTH/8)
+    pad[1] = buildPad(
+                'Right pad',
+                SCREEN_WIDTH-PAD_W-PAD_X_OFFSET,
+                PAD2_COLOR,
+                PAD1IMAGE,
+                SCREEN_WIDTH/8*7)
+
     for i = 0, 1 do
-        pad[i].reset(pad[1])
+        pad[i]:reset()
     end
 
     assert(pad[0].image)
@@ -68,7 +76,7 @@ function build_game_state()
             ball.dy = 1 - 2*math.random(0, 1)
         end
     }
-    ball.reset(ball)
+    ball:reset()
 
     function drawBall(ball)
         love.graphics.circle('fill',
