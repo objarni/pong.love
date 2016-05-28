@@ -2,10 +2,12 @@
 require('lovestates')
 require('startstate')
 require('gamestate')
+require('gameoverstate')
 
 states = {
     start_state = build_start_state(),
-    game_state = build_game_state()
+    game_state = build_game_state(),
+    gameover_state = build_gameover_state()
 }
 
 
@@ -16,7 +18,7 @@ function love.load()
     switch_state( 'start_state' )
     font = love.graphics.newFont( 'font.ttf', 40 )
     love.graphics.setFont( font )
-    debugtxt = 'hello'
+    -- debugtxt = 'hello'
 
     soundtrack = love.audio.newSource("soundtrack.xm")
     -- soundtrack:setVolume(0.9)

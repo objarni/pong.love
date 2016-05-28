@@ -147,8 +147,10 @@ function build_game_state()
     function scoreTo(padNum)
         POINT_SOUND:play()
         local newScore = pad[padNum].score + 1
-        if newScore == 10 then
-            switch_state('start_state')
+        if newScore == 5 then
+            winner = pad[padNum].name
+            winner_color = pad[padNum].color
+            switch_state('gameover_state')
         else
             pad[padNum].score = newScore
         end

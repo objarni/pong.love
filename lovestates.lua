@@ -1,6 +1,7 @@
 -- STATE SWITCHING
 function switch_state(new_state)
 	assert(states[new_state], "Did not find state " .. new_state)
+	print("Switching to state " .. new_state)
 	state = states[new_state]
 	state.init()
 end
