@@ -13,14 +13,14 @@ states = {
 
 -- LOVE 2D WRAPPERS
 function love.load()
-    love.window.setTitle( 'My first love 2d game' )
+    love.window.setTitle( 'K-Type - Defender of the Sky!' )
     w, h, flags = love.window.getMode( )
     switch_state( 'start_state' )
-    font = love.graphics.newFont( 'font.ttf', 40 )
+    font = love.graphics.newFont( '1942.ttf', 40 )
     love.graphics.setFont( font )
     -- debugtxt = 'hello'
 
-    soundtrack = love.audio.newSource("soundtrack.xm")
+    soundtrack = love.audio.newSource("music.mod")
     -- soundtrack:setVolume(0.9)
     -- soundtrack:setPitch(0.5)     
     soundtrack:play()
